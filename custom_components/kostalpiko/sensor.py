@@ -14,13 +14,14 @@ from homeassistant.const import (
     CONF_PASSWORD,
     CONF_HOST,
     CONF_MONITORED_CONDITIONS,
-    SensorDeviceClass.ENERGY,
-    UnitOfEnergy.KILO_WATT_HOUR ,
+    UnitOfEnergy
 )
 
 from homeassistant.components.sensor import (
     STATE_CLASS_MEASUREMENT,
     SensorEntity,
+    SensorDeviceClass,
+    SensorStateClass
 )
 try:
     from homeassistant.components.sensor import SensorStateClass.TOTAL_INCREASING
