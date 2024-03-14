@@ -4,16 +4,9 @@ from datetime import timedelta
 from homeassistant.const import (
     UnitOfPower,
     UnitOfEnergy,
+    UnitOfElectricPotential,
+    UnitOfElectricCurrent
     )
-
-try:
-    from homeassistant.const import (
-        UnitOfElectricPotential,
-        UnitOfElectricCurrent,
-        )
-except ImportError:
-    from homeassistant.const import VOLT as UnitOfElectricPotential.VOLT
-    from homeassistant.const import ELECTRICAL_CURRENT_AMPERE as UnitOfElectricCurrent.AMPERE
 
 DOMAIN = "kostalpiko55"
 
