@@ -23,10 +23,6 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorStateClass
 )
-try:
-    from homeassistant.components.sensor import SensorStateClass.TOTAL_INCREASING
-except ImportError:
-    from homeassistant.components.sensor import SensorStateClass.MEASUREMENTas SensorStateClass.TOTAL_INCREASING
 
 from .const import SENSOR_TYPES, MIN_TIME_BETWEEN_UPDATES, DOMAIN
 
