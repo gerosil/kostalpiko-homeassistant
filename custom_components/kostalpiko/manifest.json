@@ -6,5 +6,5 @@
   "domain": "kostalpiko55",
   "name": "Kostal Piko 5.5",
   "requirements": ["kostalpiko>=0.6"],
-  "version": "1.2.1"
+  "version": "1.2.2"
 }
