@@ -14,8 +14,8 @@ from homeassistant.const import (
     CONF_PASSWORD,
     CONF_HOST,
     CONF_MONITORED_CONDITIONS,
-    DEVICE_CLASS_ENERGY,
-    ENERGY_KILO_WATT_HOUR,
+    SensorDeviceClass.ENERGY,
+    UnitOfEnergy.KILO_WATT_HOUR ,
 )
 
 from homeassistant.components.sensor import (
@@ -23,9 +23,9 @@ from homeassistant.components.sensor import (
     SensorEntity,
 )
 try:
-    from homeassistant.components.sensor import STATE_CLASS_TOTAL_INCREASING
+    from homeassistant.components.sensor import SensorStateClass.TOTAL_INCREASING
 except ImportError:
-    from homeassistant.components.sensor import STATE_CLASS_MEASUREMENT as STATE_CLASS_TOTAL_INCREASING
+    from homeassistant.components.sensor import SensorStateClass.MEASUREMENTas SensorStateClass.TOTAL_INCREASING
 
 from .const import SENSOR_TYPES, MIN_TIME_BETWEEN_UPDATES, DOMAIN
 
@@ -70,9 +70,9 @@ class PikoSensor(SensorEntity):
         self._icon = SENSOR_TYPES[self.type][2]
         self.serial_number = info[0]
         self.model = info[1]
-        if self._unit_of_measurement == ENERGY_KILO_WATT_HOUR:
-            self._attr_device_class = DEVICE_CLASS_ENERGY
-            self._attr_state_class = STATE_CLASS_TOTAL_INCREASING
+        if self._unit_of_measurement == UnitOfEnergy.KILO_WATT_HOUR :
+            self._attr_device_class = SensorDeviceClass.ENERGY
+            self._attr_state_class = SensorStateClass.TOTAL_INCREASING
 
     @property
     def name(self):
