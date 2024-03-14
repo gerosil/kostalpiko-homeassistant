@@ -4,7 +4,7 @@
   "dependencies": [],
   "documentation": "https://github.com/gerosil/kostalpiko-homeassistant",
   "domain": "kostalpiko55",
-  "name": "Kostal Piko",
+  "name": "Kostal Piko 5.5",
   "requirements": ["kostalpiko>=0.6"],
   "version": "1.2.1"
 }
