@@ -2,8 +2,8 @@
 from datetime import timedelta
 
 from homeassistant.const import (
-    UnitOfPower.WATT,
-    UnitOfEnergy.KILO_WATT_HOUR,
+    UnitOfPower,
+    UnitOfEnergy,
     )
 
 try:
