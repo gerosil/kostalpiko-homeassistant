@@ -2,14 +2,14 @@
 from datetime import timedelta
 
 from homeassistant.const import (
-    POWER_WATT,
-    ENERGY_KILO_WATT_HOUR,
+    UnitOfPower.WATT,
+    UnitOfEnergy.KILO_WATT_HOUR,
     )
 
 try:
     from homeassistant.const import (
-        ELECTRIC_POTENTIAL_VOLT,
-        ELECTRIC_CURRENT_AMPERE,
+        UnitOfElectricPotential.VOLT,
+        UnitOfElectricCurrent.AMPERE,
         )
 except ImportError:
     from homeassistant.const import VOLT as ELECTRIC_POTENTIAL_VOLT
