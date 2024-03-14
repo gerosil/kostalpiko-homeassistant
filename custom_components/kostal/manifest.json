@@ -1,10 +1,10 @@
 {
-  "codeowners": ["@rcasula"],
+  "codeowners": ["@gerosil"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/rcasula/kostalpiko-homeassistant",
+  "documentation": "https://github.com/gerosil/kostalpiko-homeassistant",
   "domain": "kostal",
   "name": "Kostal Piko",
   "requirements": ["kostalpiko>=0.6"],
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
