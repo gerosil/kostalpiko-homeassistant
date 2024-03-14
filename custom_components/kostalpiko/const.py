@@ -15,9 +15,9 @@ except ImportError:
     from homeassistant.const import VOLT as UnitOfElectricPotential.VOLT
     from homeassistant.const import ELECTRICAL_CURRENT_AMPERE as UnitOfElectricCurrent.AMPERE
 
-DOMAIN = "kostal"
+DOMAIN = "kostalpiko55"
 
-DEFAULT_NAME = "Kostal Piko"
+DEFAULT_NAME = "Kostal Piko 5.5"
 
 MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=30)
 
