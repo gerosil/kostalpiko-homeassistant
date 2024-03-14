@@ -8,8 +8,8 @@ from homeassistant.const import (
 
 try:
     from homeassistant.const import (
-        UnitOfElectricPotential.VOLT,
-        UnitOfElectricCurrent.AMPERE,
+        UnitOfElectricPotential,
+        UnitOfElectricCurrent,
         )
 except ImportError:
     from homeassistant.const import VOLT as UnitOfElectricPotential.VOLT
