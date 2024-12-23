@@ -4,7 +4,7 @@ import logging, time
 from .piko_holder import PikoHolder
 
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
-from homeassistant.helpers.typing import HomeAssistantType
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 
 from homeassistant.helpers.entity import Entity
@@ -18,7 +18,6 @@ from homeassistant.const import (
 )
 
 from homeassistant.components.sensor import (
-    STATE_CLASS_MEASUREMENT,
     SensorEntity,
     SensorDeviceClass,
     SensorStateClass
@@ -29,7 +28,7 @@ from .const import SENSOR_TYPES, MIN_TIME_BETWEEN_UPDATES, DOMAIN
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(hass: HomeAssistantType, entry: ConfigEntry, async_add_entities):
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities):
     """Set up the sensor dynamically."""
     _LOGGER.info("Setting up kostal piko sensor")
     async def async_add_sensors(sensors, piko: PikoHolder):
@@ -54,7 +53,7 @@ async def async_setup_entry(hass: HomeAssistantType, entry: ConfigEntry, async_a
 class PikoSensor(SensorEntity):
     """Representation of a Piko inverter value."""
 
-    def __init__(self,  hass: HomeAssistantType, piko: PikoHolder, sensor_type, info={None,None}, name=None):
+    def __init__(self,  hass: HomeAssistant, piko: PikoHolder, sensor_type, info={None,None}, name=None):
         """Initialize the sensor."""
         _LOGGER.debug("Initializing PikoSensor: %s", sensor_type)
         self._sensor = SENSOR_TYPES[sensor_type][0]
