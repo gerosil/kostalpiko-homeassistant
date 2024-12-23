@@ -5,7 +5,7 @@ import logging
 from .piko_holder import PikoHolder
 
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
-from homeassistant.helpers.typing import HomeAssistantType
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers.dispatcher import async_dispatcher_send, dispatcher_send
 
 from .const import DEFAULT_NAME, DOMAIN, SENSOR_TYPES
@@ -42,7 +42,7 @@ async def async_setup(hass, config):
     return True
 
 
-async def async_setup_entry(hass: HomeAssistantType, entry: ConfigEntry):
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Setup KostalPiko component"""
 
     _LOGGER.info("Starting kostal, %s", __version__)
@@ -69,7 +69,7 @@ async def async_setup_entry(hass: HomeAssistantType, entry: ConfigEntry):
     return True
 
 
-async def async_unload_entry(hass: HomeAssistantType, entry: ConfigEntry):
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Unload a config entry."""
     instance = hass.data[DOMAIN][entry.entry_id]
     await instance.stop()
@@ -80,7 +80,7 @@ async def async_unload_entry(hass: HomeAssistantType, entry: ConfigEntry):
 class KostalInstance():
     """Config instance of Kostal"""
 
-    def __init__(self, hass: HomeAssistantType, entry: ConfigEntry, conf):
+    def __init__(self, hass: HomeAssistant, entry: ConfigEntry, conf):
         self.hass = hass
         self.config_entry = entry
         self.entry_id = self.config_entry.entry_id
@@ -107,7 +107,7 @@ class KostalInstance():
         self.hass.add_job(self._asyncadd_sensors(sensors, piko))
 
     async def _asyncadd_sensors(self, sensors, piko: PikoHolder):
-        await self.hass.config_entries.async_forward_entry_setup(self.config_entry, "sensor")
+        await self.hass.config_entries.async_forward_entry_setups(self.config_entry, ["sensor"])
         async_dispatcher_send(self.hass, "kostal_init_sensors", sensors, piko)
 
     async def clean(self):
